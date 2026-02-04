@@ -1,0 +1,127 @@
+/* Publication Page Styles */
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 30px;
+    color: #666;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.back-link:hover {
+    color: #000;
+}
+
+.paper h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.paper-authors {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+.paper-authors sup {
+    font-size: 0.7rem;
+    color: #888;
+}
+
+.paper-affiliations {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.paper-venue {
+    text-align: center;
+    font-size: 1rem;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+.paper-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.paper-btn {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.paper-btn:hover {
+    border-color: #333;
+    background-color: #f5f5f5;
+}
+
+.paper-teaser {
+    margin-bottom: 40px;
+}
+
+.paper-teaser img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.paper-section {
+    margin-bottom: 35px;
+}
+
+.paper-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.paper-section p {
+    color: #444;
+    text-align: justify;
+}
+
+.paper-section ul {
+    margin-left: 20px;
+    color: #444;
+}
+
+.paper-section li {
+    margin-bottom: 8px;
+}
+
+.bibtex {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    color: #555;
+}
+
+@media (max-width: 600px) {
+    .paper h1 {
+        font-size: 1.4rem;
+    }
+
+    .paper-authors {
+        font-size: 1rem;
+    }
+}
