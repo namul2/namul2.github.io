@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Deadlines | Byeongjin Kang</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👻</text></svg>">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="deadlines.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="icon-sun"><i class="fas fa-sun"></i></span>
+        <span class="icon-moon"><i class="fas fa-moon"></i></span>
+    </button>
+
+    <main>
+        <a href="../index.html" class="back-link">&larr; Back to Home</a>
+        <h1 class="page-title">AI Conference Deadlines</h1>
+        <p class="page-subtitle">Upcoming deadlines for ML, CV, and Robotics conferences</p>
+
+        <!-- Filter -->
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="Machine Learning">Machine Learning</button>
+            <button class="filter-btn" data-filter="Computer Vision">Computer Vision</button>
+            <button class="filter-btn" data-filter="Robot Learning">Robot Learning</button>
+            <button class="toggle-past" id="toggle-past">Show past</button>
+        </div>
+
+        <!-- Deadline Cards -->
+        <div class="deadline-list" id="deadline-list"></div>
+    </main>
+
+    <script>
+        // Theme Toggle (same as main page)
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        function getPreferredTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) return savedTheme;
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                html.setAttribute('data-theme', 'dark');
+            } else {
+                html.removeAttribute('data-theme');
+            }
+            localStorage.setItem('theme', theme);
+        }
+
+        setTheme(getPreferredTheme());
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+        });
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                setTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+
+        // Deadline App
+        let conferences = [];
+        let activeFilter = 'all';
+        let showPast = false;
+
+        const categoryClass = {
+            'Machine Learning': 'ml',
+            'Computer Vision': 'cv',
+            'Robot Learning': 'rl'
+        };
+
+        function formatCountdown(diff) {
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const secs = Math.floor((diff % (1000 * 60)) / 1000);
+            return `${days} days ${String(hours).padStart(2, '0')}h ${String(mins).padStart(2, '0')}m ${String(secs).padStart(2, '0')}s`;
+        }
+
+        function formatDeadline(dateStr) {
+            const d = new Date(dateStr);
+            return d.toLocaleDateString('en-US', {
+                weekday: 'short',
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                // timeZone: 'UTC', // TODO - consider local timezone?
+                timeZoneName: 'short'
+            });
+        }
+
+        function renderCards() {
+            const list = document.getElementById('deadline-list');
+            const now = Date.now();
+
+            let filtered = conferences.filter(c => {
+                if (activeFilter !== 'all' && c.category !== activeFilter) return false;
+                if (!showPast && new Date(c.deadline).getTime() < now) return false;
+                return true;
+            });
+
+            // Sort: upcoming first (by closest deadline), then past (most recent first)
+            filtered.sort((a, b) => {
+                const da = new Date(a.deadline).getTime() - now;
+                const db = new Date(b.deadline).getTime() - now;
+                if (da >= 0 && db >= 0) return da - db;
+                if (da < 0 && db < 0) return db - da;
+                return da >= 0 ? -1 : 1;
+            });
+
+            if (filtered.length === 0) {
+                list.innerHTML = '<div class="empty-state">No conferences to display.</div>';
+                return;
+            }
+
+            list.innerHTML = filtered.map(c => {
+                const diff = new Date(c.deadline).getTime() - now;
+                const isPast = diff < 0;
+                const isUrgent = !isPast && diff < 7 * 24 * 60 * 60 * 1000;
+                const catClass = categoryClass[c.category] || 'ml';
+
+                return `
+                <div class="deadline-card${isPast ? ' past' : ''}" data-deadline="${c.deadline}">
+                    <div class="deadline-card-top">
+                        <div class="deadline-card-info">
+                            <div class="deadline-card-name">
+                                <a href="${c.website}" target="_blank">${c.name}</a>
+                                <span class="category-tag ${catClass}">${c.category}</span>
+                            </div>
+                            <div class="deadline-card-fullname">${c.fullName}</div>
+                            <div class="deadline-card-meta">
+                                <span><i class="fas fa-calendar-alt"></i>${c.date}</span>
+                                <span><i class="fas fa-map-marker-alt"></i>${c.location}</span>
+                            </div>
+                        </div>
+                        <div class="countdown-area">
+                            ${isPast
+                                ? '<div class="countdown past-label">Deadline passed</div>'
+                                : `<div class="countdown${isUrgent ? ' urgent' : ''}">${formatCountdown(diff)}</div>`
+                            }
+                            <div class="deadline-date-label">Deadline: ${formatDeadline(c.deadline)}</div>
+                        </div>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        function updateCountdowns() {
+            const now = Date.now();
+            document.querySelectorAll('.deadline-card:not(.past)').forEach(card => {
+                const deadline = new Date(card.dataset.deadline).getTime();
+                const diff = deadline - now;
+                const countdownEl = card.querySelector('.countdown');
+                if (!countdownEl) return;
+
+                if (diff <= 0) {
+                    renderCards();
+                    return;
+                }
+
+                const isUrgent = diff < 7 * 24 * 60 * 60 * 1000;
+                countdownEl.textContent = formatCountdown(diff);
+                countdownEl.classList.toggle('urgent', isUrgent);
+            });
+        }
+
+        // Filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeFilter = btn.dataset.filter;
+                renderCards();
+            });
+        });
+
+        // Toggle past
+        document.getElementById('toggle-past').addEventListener('click', function() {
+            showPast = !showPast;
+            this.classList.toggle('active', showPast);
+            this.textContent = showPast ? 'Hide past' : 'Show past';
+            renderCards();
+        });
+
+        // Load data - try fetch first, fall back to embedded script
+        function init(data) {
+            conferences = data;
+            renderCards();
+            setInterval(updateCountdowns, 1000);
+        }
+
+        fetch('conferences.json')
+            .then(r => r.json())
+            .then(init)
+            .catch(() => {
+                // Fallback: load via script tag (for file:// protocol)
+                const s = document.createElement('script');
+                s.src = 'conferences.js';
+                s.onload = () => init(window.CONFERENCES);
+                document.head.appendChild(s);
+            });
+    </script>
+</body>
+</html>

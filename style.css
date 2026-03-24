@@ -134,6 +134,8 @@ a:hover {
 .social-links {
     clear: both;
     padding-top: 15px;
+    display: flex;
+    align-items: center;
 }
 
 .social-links a {
@@ -148,11 +150,32 @@ a:hover {
     text-decoration: none;
 }
 
+.social-links .nav-btn {
+    margin-left: auto;
+    margin-right: 0;
+    font-size: 1rem;
+    padding: 5px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+}
+
+.social-links .nav-btn:hover {
+    border-color: var(--highlight-color);
+    color: var(--highlight-color);
+}
+
+.social-links .nav-btn i {
+    margin-right: 4px;
+    font-size: 0.8rem;
+}
+
 /* Separator */
 .separator {
     border: none;
     border-top: 1px solid var(--border-color);
-    margin: 30px 0;
+    margin: 10px 0;
 }
 
 /* Section Titles */
