@@ -165,5 +165,76 @@ window.CONFERENCES = [
         "venue": "TBD (Silicon Valley)",
         "website": "https://2026.ieee-humanoids.org/",
         "note": "Paper submission deadline is estimated; official CFP not yet released"
+    },
+    {
+        "name": "ICLR 2027",
+        "fullName": "International Conference on Learning Representations",
+        "category": "Robot Learning",
+        "deadline": "2026-09-24T23:59:00-12:00",
+        // Full paper submission deadline: Sep 24, 2026 (23:59 AoE)
+        "date": "TBD",
+        "location": "West Coast, North America",
+        "venue": "TBD",
+        "website": "https://iclr.cc/"
+    },
+    {
+        "name": "ICRA 2027",
+        "fullName": "IEEE International Conference on Robotics and Automation",
+        "category": "Robot Learning",
+        "deadline": "2026-09-15T23:59:00-08:00",
+        "date": "May 24-28, 2027",
+        "location": "Seoul, South Korea",
+        "venue": "COEX Convention & Exhibition Center",
+        "website": "https://2027.ieee-icra.org/"
+    },
+    {
+        "name": "RSS 2027",
+        "fullName": "Robotics: Science and Systems",
+        "category": "Robot Learning",
+        "deadline": null,
+        "date": "TBD",
+        "location": "Athens, Greece",
+        "venue": "TBD",
+        "website": "https://roboticsconference.org/"
+    },
+    {
+        "name": "CoRL 2027",
+        "fullName": "Conference on Robot Learning",
+        "category": "Robot Learning",
+        "deadline": null,
+        "date": "TBD",
+        "location": "TBD",
+        "venue": "TBD",
+        "website": "https://www.corl.org/"
+    },
+    {
+        "name": "IROS 2027",
+        "fullName": "IEEE/RSJ International Conference on Intelligent Robots and Systems",
+        "category": "Robot Learning",
+        "deadline": "2027-05-01T23:59:00Z",
+        "date": "September 26 - October 1, 2027",
+        "location": "Florence, Italy",
+        "venue": "Fortezza da Basso",
+        "website": "https://www.ieee-ras.org/event/2027-ieee-rsj-international-conference-on-intelligent-robots-and-systems-iros-70525/"
+    },
+    {
+        "name": "ICML 2027",
+        "fullName": "International Conference on Machine Learning",
+        "category": "Robot Learning",
+        "deadline": null,
+        "date": "TBD",
+        "location": "South America",
+        "venue": "TBD",
+        "website": "https://icml.cc/"
+    },
+    {
+        "name": "NeurIPS 2027",
+        "fullName": "Conference on Neural Information Processing Systems",
+        "category": "Robot Learning",
+        "deadline": null,
+        "date": "TBD",
+        "location": "Europe",
+        "venue": "TBD",
+        "website": "https://neurips.cc/"
     }
 ];
