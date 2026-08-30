@@ -169,11 +169,11 @@ window.CONFERENCES = [
     {
         "name": "ICLR 2027",
         "fullName": "International Conference on Learning Representations",
-        "category": "Robot Learning",
+        "category": "Machine Learning",
         "deadline": "2026-09-24T23:59:00-12:00",
         // Full paper submission deadline: Sep 24, 2026 (23:59 AoE)
-        "date": "TBD",
-        "location": "West Coast, North America",
+        "date": "April 26-28, 2027",
+        "location": "Moscone Center, San Francisco, California, USA",
         "venue": "TBD",
         "website": "https://iclr.cc/"
     },
@@ -188,26 +188,6 @@ window.CONFERENCES = [
         "website": "https://2027.ieee-icra.org/"
     },
     {
-        "name": "RSS 2027",
-        "fullName": "Robotics: Science and Systems",
-        "category": "Robot Learning",
-        "deadline": null,
-        "date": "TBD",
-        "location": "Athens, Greece",
-        "venue": "TBD",
-        "website": "https://roboticsconference.org/"
-    },
-    {
-        "name": "CoRL 2027",
-        "fullName": "Conference on Robot Learning",
-        "category": "Robot Learning",
-        "deadline": null,
-        "date": "TBD",
-        "location": "TBD",
-        "venue": "TBD",
-        "website": "https://www.corl.org/"
-    },
-    {
         "name": "IROS 2027",
         "fullName": "IEEE/RSJ International Conference on Intelligent Robots and Systems",
         "category": "Robot Learning",
@@ -217,24 +197,105 @@ window.CONFERENCES = [
         "venue": "Fortezza da Basso",
         "website": "https://www.ieee-ras.org/event/2027-ieee-rsj-international-conference-on-intelligent-robots-and-systems-iros-70525/"
     },
+        {
+        "name": "CVPR 2027",
+        "fullName": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+        "category": "Computer Vision",
+        "deadline": "2026-11-13T23:59:00-12:00",
+        // EXPECTED: Official CVPR 2027 submission deadline not yet announced
+        // Expected full paper deadline: ~Nov 13, 2026 (AoE)
+        // Based on recent CVPR cycles; likely early-to-mid November 2026
+        "date": "June 20-24, 2027",
+        "location": "Seattle, Washington, USA",
+        "venue": "Seattle Convention Center",
+        "website": "https://cvpr.thecvf.com/",
+        "note": "Paper submission deadline is estimated; official CVPR 2027 CFP not yet released"
+    },
+
+    // ========================
+    // Robot Learning / Robotics
+    // ========================
     {
-        "name": "ICML 2027",
-        "fullName": "International Conference on Machine Learning",
+        "name": "RSS 2027 (Expected)",
+        "fullName": "Robotics: Science and Systems",
         "category": "Robot Learning",
-        "deadline": null,
-        "date": "TBD",
-        "location": "South America",
+        "deadline": "2027-01-29T23:59:00-12:00",
+        // EXPECTED: Official paper deadline not yet announced
+        // RSS 2025 paper deadline: Jan 24, 2025 (AoE)
+        // RSS 2026 paper deadline: Jan 30, 2026 (AoE)
+        // Estimated RSS 2027 full paper deadline: ~Jan 29, 2027 (AoE)
+        "date": "July 6-11, 2027",
+        "location": "Athens, Greece",
         "venue": "TBD",
-        "website": "https://icml.cc/"
+        "website": "https://roboticsconference.org/",
+        "note": "Paper submission deadline is estimated; conference dates and Athens location are confirmed"
     },
     {
-        "name": "NeurIPS 2027",
-        "fullName": "Conference on Neural Information Processing Systems",
+        "name": "CoRL 2026 Workshops",
+        "fullName": "Conference on Robot Learning Workshops",
         "category": "Robot Learning",
-        "deadline": null,
+        "deadline": "2026-10-05T23:59:00-12:00",
+        // APPROXIMATE: Each workshop has its own submission deadline
+        // Observed deadlines range roughly from late September to mid-October
+        // Examples: Sep 24, Oct 1, Oct 7, Oct 8, Oct 9, Oct 12, ...
+        // Oct 5 is used here as a representative approximate deadline
+        "date": "November 12, 2026",
+        "location": "Austin, Texas, USA",
+        "venue": "JW Marriott Austin",
+        "website": "https://2026.corl.org/program/workshops",
+        "note": "Approximate representative deadline; individual workshop deadlines vary"
+    },
+        {
+        "name": "CoRL 2027 (Expected)",
+        "fullName": "Conference on Robot Learning",
+        "category": "Robot Learning",
+        "deadline": "2027-05-27T23:59:00-12:00",
+        // EXPECTED: Official CoRL 2027 deadline not yet announced
+        // Recent full paper deadlines:
+        //   CoRL 2024: Jun 6, 2024
+        //   CoRL 2025: Apr 30, 2025
+        //   CoRL 2026: May 28, 2026
+        // Estimated CoRL 2027 deadline: ~May 27, 2027 (AoE)
         "date": "TBD",
+        "location": "TBD",
+        "venue": "TBD",
+        "website": "https://www.corl.org/",
+        "note": "Paper submission deadline is estimated based on recent CoRL submission cycles; official 2027 CFP not yet released"
+    },
+    {
+        "name": "NeurIPS 2027 (Expected)",
+        "fullName": "Conference on Neural Information Processing Systems",
+        "category": "Machine Learning",
+        "deadline": "2027-05-19T23:59:00-12:00",
+        // EXPECTED: Official NeurIPS 2027 deadline not yet announced
+        // Recent full paper deadlines:
+        //   NeurIPS 2023: May 17
+        //   NeurIPS 2024: May 22
+        //   NeurIPS 2025: May 15
+        //   NeurIPS 2026: May 6
+        // Estimated NeurIPS 2027 full paper deadline: ~May 19, 2027 (AoE)
+        "date": "December 2027",
         "location": "Europe",
         "venue": "TBD",
-        "website": "https://neurips.cc/"
-    }
+        "website": "https://neurips.cc/",
+        "note": "Paper submission deadline and exact conference dates are estimated; Europe is officially confirmed for NeurIPS 2027"
+    },
+    {
+        "name": "ICML 2027 (Expected)",
+        "fullName": "International Conference on Machine Learning",
+        "category": "Machine Learning",
+        "deadline": "2027-01-28T23:59:00-12:00",
+        // EXPECTED: Official ICML 2027 deadline not yet announced
+        // Recent full paper deadlines:
+        //   ICML 2023: Jan 26
+        //   ICML 2024: Feb 1
+        //   ICML 2025: Jan 30
+        //   ICML 2026: Jan 28
+        // Estimated ICML 2027 full paper deadline: ~Jan 28, 2027 (AoE)
+        "date": "July 2027",
+        "location": "South America",
+        "venue": "TBD",
+        "website": "https://icml.cc/",
+        "note": "Paper submission deadline and exact conference dates are estimated; South America is officially confirmed for ICML 2027"
+    },
 ];

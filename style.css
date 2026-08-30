@@ -100,9 +100,9 @@ a:hover {
 
 .profile-img-wrapper {
     float: right;
-    margin-top: 40px;
+    margin-top: 65px;
     margin-left: 13px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
 }
 
 .profile-img {
@@ -268,14 +268,27 @@ h2 a:hover {
 
 .project-thumbnail {
     flex-shrink: 0;
-    width: 160px;
+    width: 125px;
+    height: 100px;
+    position: relative;
 }
 
 .project-thumbnail img {
+    display: block;
     width: 100%;
     height: auto;
     border-radius: 4px;
     background-color: var(--thumbnail-bg);
+    transform-origin: center;
+    transition: transform 0.2s ease;
+}
+
+.project-thumbnail:hover {
+    z-index: 1;
+}
+
+.project-thumbnail:hover img {
+    transform: scale(1.2);
 }
 
 .project-content {
@@ -381,7 +394,7 @@ footer {
     .profile-img-wrapper {
         float: none;
         text-align: center;
-        margin: 0 0 20px 0;
+        margin: 0 0 10px 0;
     }
 
     .profile-img {
