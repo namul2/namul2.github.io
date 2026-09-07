@@ -5,7 +5,7 @@
 
 /* CSS Variables for Light Mode */
 :root {
-    --bg-color: #ffffff;
+    --bg-color: #fffcf7;
     --text-color: #333;
     --text-secondary: #2b2b2b;
     --text-muted: #383838;
@@ -13,28 +13,30 @@
     --text-lighter: #888;
     --text-lightest: #999;
     --heading-color: #1a1a1a;
-    --link-color: #0066cc;
-    --highlight-color: #e07306;
-    --border-color: #eee;
+    --heading-color2: #1a1a1a;
+    --link-color: #8b522d;
+    --highlight-color: #da8543;
+    --border-color: #ab7d6c;
     --shadow-color: rgba(0, 0, 0, 0.1);
     --thumbnail-bg: #f5f5f5;
     --social-hover: #000;
-}
+}   
 
 /* Dark Mode Variables */
 [data-theme="dark"] {
     --bg-color: #1a1a1a;
-    --text-color: #e0e0e0;
+    --text-color: #fcfaf5;
     --text-secondary: #d0d0d0;
     --text-muted: #b0b0b0;
     --text-light: #a0a0a0;
     --text-lighter: #909090;
     --text-lightest: #808080;
-    --heading-color: #f0f0f0;
-    --link-color: #6ab0ff;
-    --highlight-color: #f5a623;
+    --heading-color: #ffffff;
+    --heading-color2: #fffcf1;
+    --link-color: rgb(240, 180, 85);
+    --highlight-color: #ffc05b;
     --border-color: #333;
-    --shadow-color: rgba(0, 0, 0, 0.3);
+    --shadow-color: rgba(0, 0, 0, 0.3); 
     --thumbnail-bg: #2a2a2a;
     --social-hover: #fff;
 }
@@ -153,21 +155,21 @@ a:hover {
 }
 
 .current-interest {
-    font-family: 'Crimson Pro', Georgia, serif;
+    /* font-family: 'Crimson Pro', Georgia, serif; */
     font-weight: 400;
-    font-size: 1.2rem;
-    color:rgb(42, 98, 177)
+    font-size: 1rem;
+    color:var(--highlight-color)
 }
 
 .current-interest-content {
-    font-family: 'Crimson Pro', Georgia, serif;
+    /* font-family: 'Crimson Pro', Georgia, serif; */
     font-weight: 300;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--text-secondary);
 }
 
 .previous-exp {
-    font-family: 'Crimson Pro', Georgia, serif;
+    /* font-family: 'Crimson Pro', Georgia, serif; */
     font-size: 0.85rem;
     color: var(--text-lighter);
 }
@@ -345,14 +347,14 @@ h2 a:hover {
 .project-title {
     font-weight: 500;
     font-size: 1rem;
-    color: var(--heading-color);
+    color: var(--heading-color2);
     margin-bottom: 2px;
 }
 
 .project-date {
     font-size: 0.85rem;
     color: var(--text-lighter);
-    margin-bottom: 6px;
+    margin-bottom: 3px;
 }
 
 .project-content p {
@@ -373,7 +375,7 @@ h2 a:hover {
 footer {
     text-align: center;
     padding-top: 30px;
-    border-top: 1px solid var(--border-color);
+    /* border-top: 1px solid var(--border-color); */
     color: var(--text-lightest);
     font-size: 0.85rem;
 }
