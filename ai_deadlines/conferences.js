@@ -1,4 +1,4 @@
-window.DEADLINES_LAST_VERIFIED = "September 15, 2026";
+window.DEADLINES_LAST_VERIFIED = "September 30, 2026";
 
 window.CONFERENCES = [
     // Machine Learning
@@ -234,15 +234,13 @@ window.CONFERENCES = [
         "name": "RSS 2027",
         "fullName": "Robotics: Science and Systems",
         "category": "Robot Learning",
-        "deadline": "2027-01-30T11:59:00Z",
-        "deadlineZone": "AoE estimate",
-        "deadlineDateLabel": "January 29, 2027",
-        "estimated": true,
+        "deadline": "2026-12-05T11:59:00Z",
+        "deadlineZone": "AoE (UTC-12)",
         "date": "July 6-11, 2027",
         "location": "Athens, Greece",
         "venue": "TBA",
-        "website": "https://roboticsconference.org/",
-        "note": "Deadline estimated from recent RSS cycles; the conference dates and Athens location are official."
+        "website": "https://roboticsconference.org/information/cfp/",
+        "note": "Stage 1 extended abstract deadline: December 4, 2026; invited Stage 2 final paper deadline: April 16, 2027, AoE."
     },
     {
         "name": "CoRL 2027",
